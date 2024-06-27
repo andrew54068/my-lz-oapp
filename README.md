@@ -23,7 +23,7 @@
 We recommend using `pnpm` as a package manager (but you can of course use a package manager of your choice):
 
 ```bash
-pnpm install
+yarn install
 ```
 
 #### Compiling your contracts
@@ -31,47 +31,7 @@ pnpm install
 This project supports both `hardhat` and `forge` compilation. By default, the `compile` command will execute both:
 
 ```bash
-pnpm compile
-```
-
-If you prefer one over the other, you can use the tooling-specific commands:
-
-```bash
-pnpm compile:forge
-pnpm compile:hardhat
-```
-
-Or adjust the `package.json` to for example remove `forge` build:
-
-```diff
-- "compile": "$npm_execpath run compile:forge && $npm_execpath run compile:hardhat",
-- "compile:forge": "forge build",
-- "compile:hardhat": "hardhat compile",
-+ "compile": "hardhat compile"
-```
-
-#### Running tests
-
-Similarly to the contract compilation, we support both `hardhat` and `forge` tests. By default, the `test` command will execute both:
-
-```bash
-pnpm test
-```
-
-If you prefer one over the other, you can use the tooling-specific commands:
-
-```bash
-pnpm test:forge
-pnpm test:hardhat
-```
-
-Or adjust the `package.json` to for example remove `hardhat` tests:
-
-```diff
-- "test": "$npm_execpath test:forge && $npm_execpath test:hardhat",
-- "test:forge": "forge test",
-- "test:hardhat": "$npm_execpath hardhat test"
-+ "test": "forge test"
+yarn run compile
 ```
 
 ## 2) Deploying Contracts
@@ -85,24 +45,61 @@ Set up deployer wallet/account:
 MNEMONIC="test test test test test test test test test test test junk"
 or...
 PRIVATE_KEY="0xabc...def"
+
+POLYGONSCAN_API_KEY=
+OP_ETHERSCAN_API_KEY=
+ARB_ETHERSCAN_API_KEY=
 ```
 
 To deploy your contracts to your desired blockchains, run the following command in your project's folder:
 
 ```bash
-npx hardhat lz:deploy
+npx hardhat lz:deploy --tags MyOApp
 ```
 
-More information about available CLI arguments can be found using the `--help` flag:
+The above command will execute the `deploy/MyOApp.ts` to deploy contract and verify it base on the `networks` setting of `hardhat.config.ts`
 
-```bash
-npx hardhat lz:deploy --help
+### To only verify contract in case of error occurred
+```shell
+npx hardhat run deploy/verifyContract.ts --network amoy
 ```
 
-By following these steps, you can focus more on creating innovative omnichain solutions and less on the complexities of cross-chain communication.
+## 3) Wiring Pathways
+[more detail](https://docs.layerzero.network/v2/developers/evm/create-lz-oapp/wiring#checking-setpeers)
 
-<br></br>
+make sure you set the `connections` correctly in `layerzero.config.ts`
 
-<p align="center">
-  Join our community on <a href="https://discord-layerzero.netlify.app/discord" style="color: #a77dff">Discord</a> | Follow us on <a href="https://twitter.com/LayerZero_Labs" style="color: #a77dff">Twitter</a>
-</p>
+```typescript
+    connections: [
+        {
+            from: arbitrumSepolia2Contract,
+            to: amoyContract,
+        },
+        {
+            from: amoyContract,
+            to: arbitrumSepolia2Contract,
+        },
+    ],
+```
+
+#### Set up the `peer` address for your OApp:
+```shell
+npx hardhat lz:oapp:wire --oapp-config layerzero.config.ts
+```
+
+#### Checking setPeers
+```shell
+npx hardhat lz:oapp:peers:get --oapp-config layerzero.config.ts
+```
+
+#### Checking Pathway
+```shell
+npx hardhat lz:oapp:config:get --oapp-config layerzero.config.ts
+```
+
+#### Send Message From A chain to B chain
+```shell
+source .env
+
+forge script script/BatchSend.s.sol:SendBatchMessage -vvvv --broadcast --rpc-url arbitrumSepolia --sig "run(address)" -- 0xEBEBaA535eECC0De6B5467AcacC752708Cf3050B
+```

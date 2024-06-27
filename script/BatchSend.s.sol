@@ -1,62 +1,60 @@
-// // SPDX-License-Identifier: MIT
-// pragma solidity 0.8.22;
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.22;
 
-// contract DeployMessageTokenSender is Script {
-//     function run(SupportedNetworks source) external {
-//         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
-//         vm.startBroadcast(deployerPrivateKey);
+import "forge-std/Script.sol";
+import { MyOApp } from "../contracts/MyOApp.sol";
+import { OptionsBuilder } from "@layerzerolabs/lz-evm-oapp-v2/contracts/oapp/libs/OptionsBuilder.sol";
+import { MessagingFee } from "@layerzerolabs/lz-evm-oapp-v2/contracts/oapp/OApp.sol";
+import { MessagingReceipt } from "@layerzerolabs/lz-evm-oapp-v2/contracts/oapp/OAppSender.sol";
 
-//         (address router, address link, , ) = getConfigFromNetwork(source);
+contract SendBatchMessage is Script {
+    using OptionsBuilder for bytes;
 
-//         MessageTokenSender messageTokenSender = new MessageTokenSender(
-//             router,
-//             link
-//         );
+    // Endpoint addresses
+    address constant optimismSepoliaEndpoint = 0x6EDCE65403992e310A62460808c4b910D972f10f;
+    address constant arbitrumSepoliaEndpoint = 0x6EDCE65403992e310A62460808c4b910D972f10f;
+    address constant amoyEndpoint = 0x6EDCE65403992e310A62460808c4b910D972f10f;
 
-//         console.log(
-//             "MessageTokenSender contract deployed on ",
-//             networks[source],
-//             "with address: ",
-//             address(messageTokenSender)
-//         );
+    // OApp addresses
+    address constant amoyOApp = 0x3E1506Ee1EBf9f3BF946a83e8e21b967e11F8963;
+    address constant arbitrumOApp = 0xEBEBaA535eECC0De6B5467AcacC752708Cf3050B;
 
-//         vm.stopBroadcast();
-//     }
-// }
+    uint32 constant arbsep_v2_testnet = 40231;
+    uint32 constant optsep_v2_testnet = 40232;
+    uint32 constant amoy_v2_testnet = 40267;
 
-// contract SendBatchMessage is Script, Helper {
-//     function run(
-//         address payable sender,
-//         address payable messageTokenSender,
-//         address receiver,
-//         MessageTokenSender.PayFeesIn payFeesIn
-//     ) external {
-//         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
-//         vm.startBroadcast(deployerPrivateKey);
+    function run(address payable sender) external {
+        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        vm.startBroadcast(deployerPrivateKey);
 
-//         // (, , , uint64 destinationChainId) = getConfigFromNetwork(destination);
-//         uint64 destinationChainId = 4051577828743386545;
+        MyOApp myOApp = MyOApp(sender);
 
-//         // address transferTokenAddress = 0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d; // testnet USDC
-//         address transferTokenAddress = 0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85; // mainnet USDC
+        // uint128 gas_limit = 85000;
+        uint128 gas_limit = 50000;
+        uint128 msg_value = 0;
 
-//         IERC20(transferTokenAddress).approve(messageTokenSender, 9);
+        bytes memory _options = OptionsBuilder.newOptions()
+            .addExecutorNativeDropOption(100000, bytes32(uint256(uint160(amoyOApp)) << 96))
+            .addExecutorLzReceiveOption(gas_limit, msg_value);
 
-//         sender.call{value: 0.02 ether}("");
+        string memory message = "Hello, LayerZero!";
 
-//         bytes32[] memory messageIds = MessageTokenSender(messageTokenSender).sendBatch{value: 0.02 ether}(
-//             destinationChainId,
-//             receiver,
-//             transferTokenAddress
-//         );
+        MessagingFee memory fee = myOApp.quote(amoy_v2_testnet, message, _options, false);
 
-//         console.log(
-//             "You can now monitor the status of your Chainlink CCIP Message via https://ccip.chain.link using CCIP Message ID: "
-//         );
-//         for (uint256 i = 0; i < messageIds.length; i++) {
-//             console.logBytes32(messageIds[i]);
-//         }
+        console.log("nativeFee fee:", fee.nativeFee, ", with lzTokenFee:", fee.lzTokenFee);
 
-//         vm.stopBroadcast();
-//     }
-// }
+        MessagingReceipt memory receipt = myOApp.send{ value: fee.nativeFee }(amoy_v2_testnet, message, _options);
+        console.log("nativeFee fee:", fee.nativeFee, ", with lzTokenFee:", fee.lzTokenFee);
+        bytes32 guid = receipt.guid;
+        uint64 nonce = receipt.nonce;
+        uint256 nativeFee = receipt.fee.nativeFee;
+        uint256 lzTokenFee = receipt.fee.lzTokenFee;
+
+        console.logBytes32(guid);
+        console.logUint(nonce);
+        console.logUint(nativeFee);
+        console.logUint(lzTokenFee);
+
+        vm.stopBroadcast();
+    }
+}
