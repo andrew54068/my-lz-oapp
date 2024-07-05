@@ -3,7 +3,6 @@ import '@nomicfoundation/hardhat-verify'
 import { type DeployFunction } from 'hardhat-deploy/types'
 import { verify } from './verify'
 
-// TODO declare your contract name here
 const contractName = 'MyOrderedOApp'
 
 const deploy: DeployFunction = async (hre) => {
@@ -39,12 +38,14 @@ const deploy: DeployFunction = async (hre) => {
         endpointV2Deployment.address, // LayerZero's EndpointV2 address
         deployer, // owner
     ]
+    console.log(`about to deploy contract: ${contractName}`)
     const { address } = await deploy(contractName, {
         from: deployer,
         args,
         log: true,
         skipIfAlreadyDeployed: false,
     })
+    console.log(`finishing deploy contract: ${contractName}`)
 
     console.log(`Deployed contract: ${contractName}, network: ${hre.network.name}, address: ${address}`)
 

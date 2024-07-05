@@ -41,6 +41,7 @@
     "@openzeppelin/contracts": "^5.0.1",
     "@openzeppelin/contracts-upgradeable": "^5.0.1",
     "@rushstack/eslint-patch": "^1.7.0",
+    "@stargatefinance/stg-evm-v2": "^1.0.6",
     "@types/chai": "^4.3.11",
     "@types/mocha": "^10.0.6",
     "@types/node": "~18.18.14",

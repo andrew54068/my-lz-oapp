@@ -29,12 +29,10 @@ contract SendBatchMessage is Script {
 
         MyOApp myOApp = MyOApp(sender);
 
-        // uint128 gas_limit = 85000;
         uint128 gas_limit = 50000;
         uint128 msg_value = 0;
 
         bytes memory _options = OptionsBuilder.newOptions()
-            .addExecutorNativeDropOption(100000, bytes32(uint256(uint160(amoyOApp)) << 96))
             .addExecutorLzReceiveOption(gas_limit, msg_value);
 
         string memory message = "Hello, LayerZero!";
@@ -44,7 +42,6 @@ contract SendBatchMessage is Script {
         console.log("nativeFee fee:", fee.nativeFee, ", with lzTokenFee:", fee.lzTokenFee);
 
         MessagingReceipt memory receipt = myOApp.send{ value: fee.nativeFee }(amoy_v2_testnet, message, _options);
-        console.log("nativeFee fee:", fee.nativeFee, ", with lzTokenFee:", fee.lzTokenFee);
         bytes32 guid = receipt.guid;
         uint64 nonce = receipt.nonce;
         uint256 nativeFee = receipt.fee.nativeFee;

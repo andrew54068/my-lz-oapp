@@ -67,4 +67,6 @@ contract MyOApp is OApp {
     ) internal override {
         data = abi.decode(payload, (string));
     }
+
+    receive() external payable {}
 }

@@ -1,0 +1,186 @@
+{
+  "address": "0x89e20ef8ccdf9FC8D15Fb7E69fD9E0458C6ec00c",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_endpoint",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_stargate",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        }
+      ],
+      "name": "ReceivedOnDestination",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_tokenReceiver",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_oftOnDestination",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_tokenOut",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_amountOutMinDest",
+          "type": "uint256"
+        }
+      ],
+      "name": "SwapParam",
+      "type": "event"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "inputs": [],
+      "name": "endpoint",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_guid",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_message",
+          "type": "bytes"
+        },
+        {
+          "internalType": "address",
+          "name": "_executor",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_extraData",
+          "type": "bytes"
+        }
+      ],
+      "name": "lzCompose",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "stargate",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "transactionHash": "0xd5692b9bdd7732a2b2a803c7fb5dffef904bb399d7ea26722bf8040a1d5810b0",
+  "receipt": {
+    "to": null,
+    "from": "0x436f795B64E23E6cE7792af4923A68AFD3967952",
+    "contractAddress": "0x89e20ef8ccdf9FC8D15Fb7E69fD9E0458C6ec00c",
+    "transactionIndex": 5,
+    "gasUsed": "338333",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x4dc6628f198b7de32f9c022c1a5f61bbcd15f6a45ba9522e83b5ee2dbbfaac82",
+    "transactionHash": "0xd5692b9bdd7732a2b2a803c7fb5dffef904bb399d7ea26722bf8040a1d5810b0",
+    "logs": [],
+    "blockNumber": 14185096,
+    "cumulativeGasUsed": "3256075",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x6EDCE65403992e310A62460808c4b910D972f10f",
+    "0x1E8A86EcC9dc41106d3834c6F1033D86939B1e0D"
+  ],
+  "numDeployments": 3,
+  "solcInputHash": "9b48842e4dbb24896794335b60d349ef",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.22+commit.4fc1097e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_endpoint\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_stargate\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"ReceivedOnDestination\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_tokenReceiver\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_oftOnDestination\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_tokenOut\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_amountOutMinDest\",\"type\":\"uint256\"}],\"name\":\"SwapParam\",\"type\":\"event\"},{\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"inputs\":[],\"name\":\"endpoint\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_from\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"_guid\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"_message\",\"type\":\"bytes\"},{\"internalType\":\"address\",\"name\":\"_executor\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"_extraData\",\"type\":\"bytes\"}],\"name\":\"lzCompose\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"stargate\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"lzCompose(address,bytes32,bytes,address,bytes)\":{\"details\":\"To ensure non-reentrancy, implementers of this interface MUST assert msg.sender is the corresponding EndpointV2 contract (i.e., onlyEndpointV2).\",\"params\":{\"_executor\":\"The address of the executor for the composed message.\",\"_extraData\":\"Additional arbitrary data in bytes passed by the entity who executes the lzCompose.\",\"_from\":\"The address initiating the composition, typically the OApp where the lzReceive was called.\",\"_guid\":\"The unique identifier for the corresponding LayerZero src/dst tx.\",\"_message\":\"The composed message payload in bytes. NOT necessarily the same payload passed via lzReceive.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"lzCompose(address,bytes32,bytes,address,bytes)\":{\"notice\":\"Composes a LayerZero message from an OApp.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/ComposerReceiverAMM.sol\":\"ComposerReceiverAMM\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@layerzerolabs/lz-evm-oapp-v2/contracts/oft/libs/OFTComposeMsgCodec.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.20;\\n\\nlibrary OFTComposeMsgCodec {\\n    // Offset constants for decoding composed messages\\n    uint8 private constant NONCE_OFFSET = 8;\\n    uint8 private constant SRC_EID_OFFSET = 12;\\n    uint8 private constant AMOUNT_LD_OFFSET = 44;\\n    uint8 private constant COMPOSE_FROM_OFFSET = 76;\\n\\n    /**\\n     * @dev Encodes a OFT composed message.\\n     * @param _nonce The nonce value.\\n     * @param _srcEid The source endpoint ID.\\n     * @param _amountLD The amount in local decimals.\\n     * @param _composeMsg The composed message.\\n     * @return _msg The encoded Composed message.\\n     */\\n    function encode(\\n        uint64 _nonce,\\n        uint32 _srcEid,\\n        uint256 _amountLD,\\n        bytes memory _composeMsg // 0x[composeFrom][composeMsg]\\n    ) internal pure returns (bytes memory _msg) {\\n        _msg = abi.encodePacked(_nonce, _srcEid, _amountLD, _composeMsg);\\n    }\\n\\n    /**\\n     * @dev Retrieves the nonce from the composed message.\\n     * @param _msg The message.\\n     * @return The nonce value.\\n     */\\n    function nonce(bytes calldata _msg) internal pure returns (uint64) {\\n        return uint64(bytes8(_msg[:NONCE_OFFSET]));\\n    }\\n\\n    /**\\n     * @dev Retrieves the source endpoint ID from the composed message.\\n     * @param _msg The message.\\n     * @return The source endpoint ID.\\n     */\\n    function srcEid(bytes calldata _msg) internal pure returns (uint32) {\\n        return uint32(bytes4(_msg[NONCE_OFFSET:SRC_EID_OFFSET]));\\n    }\\n\\n    /**\\n     * @dev Retrieves the amount in local decimals from the composed message.\\n     * @param _msg The message.\\n     * @return The amount in local decimals.\\n     */\\n    function amountLD(bytes calldata _msg) internal pure returns (uint256) {\\n        return uint256(bytes32(_msg[SRC_EID_OFFSET:AMOUNT_LD_OFFSET]));\\n    }\\n\\n    /**\\n     * @dev Retrieves the composeFrom value from the composed message.\\n     * @param _msg The message.\\n     * @return The composeFrom value.\\n     */\\n    function composeFrom(bytes calldata _msg) internal pure returns (bytes32) {\\n        return bytes32(_msg[AMOUNT_LD_OFFSET:COMPOSE_FROM_OFFSET]);\\n    }\\n\\n    /**\\n     * @dev Retrieves the composed message.\\n     * @param _msg The message.\\n     * @return The composed message.\\n     */\\n    function composeMsg(bytes calldata _msg) internal pure returns (bytes memory) {\\n        return _msg[COMPOSE_FROM_OFFSET:];\\n    }\\n\\n    /**\\n     * @dev Converts an address to bytes32.\\n     * @param _addr The address to convert.\\n     * @return The bytes32 representation of the address.\\n     */\\n    function addressToBytes32(address _addr) internal pure returns (bytes32) {\\n        return bytes32(uint256(uint160(_addr)));\\n    }\\n\\n    /**\\n     * @dev Converts bytes32 to an address.\\n     * @param _b The bytes32 value to convert.\\n     * @return The address representation of bytes32.\\n     */\\n    function bytes32ToAddress(bytes32 _b) internal pure returns (address) {\\n        return address(uint160(uint256(_b)));\\n    }\\n}\\n\",\"keccak256\":\"0xfbdaf41743232e6ff64cd00b495ee854d0225e2bb73a66fe9b413d2780359902\",\"license\":\"MIT\"},\"@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/ILayerZeroComposer.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.8.0;\\n\\n/**\\n * @title ILayerZeroComposer\\n */\\ninterface ILayerZeroComposer {\\n    /**\\n     * @notice Composes a LayerZero message from an OApp.\\n     * @dev To ensure non-reentrancy, implementers of this interface MUST assert msg.sender is the corresponding EndpointV2 contract (i.e., onlyEndpointV2).\\n     * @param _from The address initiating the composition, typically the OApp where the lzReceive was called.\\n     * @param _guid The unique identifier for the corresponding LayerZero src/dst tx.\\n     * @param _message The composed message payload in bytes. NOT necessarily the same payload passed via lzReceive.\\n     * @param _executor The address of the executor for the composed message.\\n     * @param _extraData Additional arbitrary data in bytes passed by the entity who executes the lzCompose.\\n     */\\n    function lzCompose(\\n        address _from,\\n        bytes32 _guid,\\n        bytes calldata _message,\\n        address _executor,\\n        bytes calldata _extraData\\n    ) external payable;\\n}\\n\",\"keccak256\":\"0xfaca7205d4211ee9208a7e59171e2301731f3d2a20c49b4a839821871f5fdd49\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (token/ERC20/IERC20.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Interface of the ERC20 standard as defined in the EIP.\\n */\\ninterface IERC20 {\\n    /**\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\n     * another (`to`).\\n     *\\n     * Note that `value` may be zero.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    /**\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\n     * a call to {approve}. `value` is the new allowance.\\n     */\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\n\\n    /**\\n     * @dev Returns the value of tokens in existence.\\n     */\\n    function totalSupply() external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the value of tokens owned by `account`.\\n     */\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from the caller's account to `to`.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transfer(address to, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Returns the remaining number of tokens that `spender` will be\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\n     * zero by default.\\n     *\\n     * This value changes when {approve} or {transferFrom} are called.\\n     */\\n    function allowance(address owner, address spender) external view returns (uint256);\\n\\n    /**\\n     * @dev Sets a `value` amount of tokens as the allowance of `spender` over the\\n     * caller's tokens.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\n     * that someone may use both the old and the new allowance by unfortunate\\n     * transaction ordering. One possible solution to mitigate this race\\n     * condition is to first reduce the spender's allowance to 0 and set the\\n     * desired value afterwards:\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address spender, uint256 value) external returns (bool);\\n\\n    /**\\n     * @dev Moves a `value` amount of tokens from `from` to `to` using the\\n     * allowance mechanism. `value` is then deducted from the caller's\\n     * allowance.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(address from, address to, uint256 value) external returns (bool);\\n}\\n\",\"keccak256\":\"0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70\",\"license\":\"MIT\"},\"contracts/ComposerReceiverAMM.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.22;\\n\\nimport { IERC20 } from \\\"@openzeppelin/contracts/token/ERC20/IERC20.sol\\\";\\nimport { ILayerZeroComposer } from \\\"@layerzerolabs/lz-evm-protocol-v2/contracts/interfaces/ILayerZeroComposer.sol\\\";\\nimport { OFTComposeMsgCodec } from \\\"@layerzerolabs/lz-evm-oapp-v2/contracts/oft/libs/OFTComposeMsgCodec.sol\\\";\\n\\ncontract ComposerReceiverAMM is ILayerZeroComposer {\\n    // IMockAMM public immutable amm;\\n    address public immutable endpoint;\\n    address public immutable stargate;\\n\\n    event ReceivedOnDestination(address token);\\n    event SwapParam(address _tokenReceiver, address _oftOnDestination, address _tokenOut, uint _amountOutMinDest);\\n\\n    constructor(address _endpoint, address _stargate) {\\n        endpoint = _endpoint;\\n        stargate = _stargate;\\n    }\\n\\n    function lzCompose(\\n        address _from,\\n        bytes32 _guid,\\n        bytes calldata _message,\\n        address _executor,\\n        bytes calldata _extraData\\n    ) external payable {\\n        require(_from == stargate, \\\"!stargate\\\");\\n        require(msg.sender == endpoint, \\\"!endpoint\\\");\\n\\n        uint256 amountLD = OFTComposeMsgCodec.amountLD(_message);\\n        bytes memory _composeMessage = OFTComposeMsgCodec.composeMsg(_message);\\n\\n        (address _tokenReceiver, address _oftOnDestination, address _tokenOut, uint _amountOutMinDest) =\\n            abi.decode(_composeMessage, (address, address, address, uint));\\n\\n        address[] memory path = new address[](2);\\n        path[0] = _oftOnDestination;\\n        path[1] = _tokenOut;\\n\\n        emit SwapParam(_tokenReceiver, _oftOnDestination, _tokenOut, _amountOutMinDest);\\n\\n        // IERC20(_oftOnDestination).approve(address(amm), amountLD);\\n\\n        // try amm.swapExactTokensForTokens(\\n        //     amountLD,\\n        //     _amountOutMinDest,\\n        //     path,  \\n        //     _tokenReceiver, \\n        //     _deadline \\n        // ) {\\n        //     emit ReceivedOnDestination(_tokenOut);\\n        // } catch {\\n        //     IERC20(_oftOnDestination).transfer(_tokenReceiver, amountLD);\\n        //     emit ReceivedOnDestination(_oftOnDestination);\\n        // }\\n    }\\n\\n    fallback() external payable {}\\n    receive() external payable {}\\n}\",\"keccak256\":\"0xf6970a215de1642ee1b6332a187ca82c896c44f08f6ef926cc08d717098e8f77\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60c060405234801561001057600080fd5b506040516105e33803806105e383398101604081905261002f91610062565b6001600160a01b039182166080521660a052610095565b80516001600160a01b038116811461005d57600080fd5b919050565b6000806040838503121561007557600080fd5b61007e83610046565b915061008c60208401610046565b90509250929050565b60805160a05161051e6100c56000396000818160a0015260d20152600081816050015261014d015261051e6000f3fe6080604052600436106100355760003560e01c80635e280f111461003e5780636c099dee1461008e578063d0a10260146100c257005b3661003c57005b005b34801561004a57600080fd5b506100727f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200160405180910390f35b34801561009a57600080fd5b506100727f000000000000000000000000000000000000000000000000000000000000000081565b61003c6100d0366004610396565b7f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316876001600160a01b0316146101425760405162461bcd60e51b815260206004820152600960248201526821737461726761746560b81b60448201526064015b60405180910390fd5b336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146101a65760405162461bcd60e51b815260206004820152600960248201526808595b991c1bda5b9d60ba1b6044820152606401610139565b60006101b286866102c8565b905060006101c087876102ea565b9050600080600080848060200190518101906101dc9190610437565b604080516002808252606082018352959950939750919550935060009290602083019080368337019050509050838160008151811061021d5761021d61048a565b60200260200101906001600160a01b031690816001600160a01b03168152505082816001815181106102515761025161048a565b6001600160a01b0392831660209182029290920181019190915260408051888416815287841692810192909252918516818301526060810184905290517f2e881d9184e7e461ce04d6bcd75b22cde181558687ca9fcc5cd64c062effd94c9181900360800190a15050505050505050505050505050565b60006102d8602c600c84866104a0565b6102e1916104ca565b90505b92915050565b60606102f982604c81866104a0565b8080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250929695505050505050565b6001600160a01b038116811461034a57600080fd5b50565b60008083601f84011261035f57600080fd5b50813567ffffffffffffffff81111561037757600080fd5b60208301915083602082850101111561038f57600080fd5b9250929050565b600080600080600080600060a0888a0312156103b157600080fd5b87356103bc81610335565b965060208801359550604088013567ffffffffffffffff808211156103e057600080fd5b6103ec8b838c0161034d565b909750955060608a0135915061040182610335565b9093506080890135908082111561041757600080fd5b506104248a828b0161034d565b989b979a50959850939692959293505050565b6000806000806080858703121561044d57600080fd5b845161045881610335565b602086015190945061046981610335565b604086015190935061047a81610335565b6060959095015193969295505050565b634e487b7160e01b600052603260045260246000fd5b600080858511156104b057600080fd5b838611156104bd57600080fd5b5050820193919092039150565b803560208310156102e457600019602084900360031b1b169291505056fea2646970667358221220b163811f965342401863dcc0999375523dfb2d837f3781b17efa3d84baf12fd164736f6c63430008160033",
+  "deployedBytecode": "0x6080604052600436106100355760003560e01c80635e280f111461003e5780636c099dee1461008e578063d0a10260146100c257005b3661003c57005b005b34801561004a57600080fd5b506100727f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b03909116815260200160405180910390f35b34801561009a57600080fd5b506100727f000000000000000000000000000000000000000000000000000000000000000081565b61003c6100d0366004610396565b7f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316876001600160a01b0316146101425760405162461bcd60e51b815260206004820152600960248201526821737461726761746560b81b60448201526064015b60405180910390fd5b336001600160a01b037f000000000000000000000000000000000000000000000000000000000000000016146101a65760405162461bcd60e51b815260206004820152600960248201526808595b991c1bda5b9d60ba1b6044820152606401610139565b60006101b286866102c8565b905060006101c087876102ea565b9050600080600080848060200190518101906101dc9190610437565b604080516002808252606082018352959950939750919550935060009290602083019080368337019050509050838160008151811061021d5761021d61048a565b60200260200101906001600160a01b031690816001600160a01b03168152505082816001815181106102515761025161048a565b6001600160a01b0392831660209182029290920181019190915260408051888416815287841692810192909252918516818301526060810184905290517f2e881d9184e7e461ce04d6bcd75b22cde181558687ca9fcc5cd64c062effd94c9181900360800190a15050505050505050505050505050565b60006102d8602c600c84866104a0565b6102e1916104ca565b90505b92915050565b60606102f982604c81866104a0565b8080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250929695505050505050565b6001600160a01b038116811461034a57600080fd5b50565b60008083601f84011261035f57600080fd5b50813567ffffffffffffffff81111561037757600080fd5b60208301915083602082850101111561038f57600080fd5b9250929050565b600080600080600080600060a0888a0312156103b157600080fd5b87356103bc81610335565b965060208801359550604088013567ffffffffffffffff808211156103e057600080fd5b6103ec8b838c0161034d565b909750955060608a0135915061040182610335565b9093506080890135908082111561041757600080fd5b506104248a828b0161034d565b989b979a50959850939692959293505050565b6000806000806080858703121561044d57600080fd5b845161045881610335565b602086015190945061046981610335565b604086015190935061047a81610335565b6060959095015193969295505050565b634e487b7160e01b600052603260045260246000fd5b600080858511156104b057600080fd5b838611156104bd57600080fd5b5050820193919092039150565b803560208310156102e457600019602084900360031b1b169291505056fea2646970667358221220b163811f965342401863dcc0999375523dfb2d837f3781b17efa3d84baf12fd164736f6c63430008160033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "lzCompose(address,bytes32,bytes,address,bytes)": {
+        "details": "To ensure non-reentrancy, implementers of this interface MUST assert msg.sender is the corresponding EndpointV2 contract (i.e., onlyEndpointV2).",
+        "params": {
+          "_executor": "The address of the executor for the composed message.",
+          "_extraData": "Additional arbitrary data in bytes passed by the entity who executes the lzCompose.",
+          "_from": "The address initiating the composition, typically the OApp where the lzReceive was called.",
+          "_guid": "The unique identifier for the corresponding LayerZero src/dst tx.",
+          "_message": "The composed message payload in bytes. NOT necessarily the same payload passed via lzReceive."
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "lzCompose(address,bytes32,bytes,address,bytes)": {
+        "notice": "Composes a LayerZero message from an OApp."
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}

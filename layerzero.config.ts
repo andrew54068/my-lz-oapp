@@ -2,28 +2,32 @@ import { EndpointId } from '@layerzerolabs/lz-definitions'
 
 import type { OAppOmniGraphHardhat, OmniPointHardhat } from '@layerzerolabs/toolbox-hardhat'
 
-const optimismSepolia2Contract: OmniPointHardhat = {
+// const contractName = 'MyOApp'
+// const contractName = 'MyOrderedOApp'
+const contractName = 'StargateOApp'
+
+const optimismSepoliaContract: OmniPointHardhat = {
     eid: EndpointId.OPTSEP_V2_TESTNET,
-    contractName: 'MyOApp',
+    contractName,
 }
 
-const arbitrumSepolia2Contract: OmniPointHardhat = {
+const arbitrumSepoliaContract: OmniPointHardhat = {
     eid: EndpointId.ARBSEP_V2_TESTNET,
-    contractName: 'MyOApp',
+    contractName,
 }
 
 const amoyContract: OmniPointHardhat = {
     eid: EndpointId.AMOY_V2_TESTNET,
-    contractName: 'MyOApp',
+    contractName,
 }
 
 const config: OAppOmniGraphHardhat = {
     contracts: [
         {
-            contract: optimismSepolia2Contract,
+            contract: optimismSepoliaContract,
         },
         {
-            contract: arbitrumSepolia2Contract,
+            contract: arbitrumSepoliaContract,
         },
         {
             contract: amoyContract,
@@ -31,12 +35,24 @@ const config: OAppOmniGraphHardhat = {
     ],
     connections: [
         {
-            from: arbitrumSepolia2Contract,
+            from: arbitrumSepoliaContract,
             to: amoyContract,
         },
         {
             from: amoyContract,
-            to: arbitrumSepolia2Contract,
+            to: arbitrumSepoliaContract,
+        },
+        {
+            from: optimismSepoliaContract,
+            to: amoyContract,
+        },
+        {
+            from: amoyContract,
+            to: optimismSepoliaContract,
+        },
+        {
+            from: arbitrumSepoliaContract,
+            to: optimismSepoliaContract,
         },
     ],
 }

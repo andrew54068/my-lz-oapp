@@ -3,7 +3,7 @@ import '@nomicfoundation/hardhat-verify'
 import { type DeployFunction } from 'hardhat-deploy/types'
 import { verify } from './verify'
 
-const contractName = 'MyOApp'
+const contractName = 'ComposerReceiverAMM'
 
 const deploy: DeployFunction = async (hre) => {
     const { getNamedAccounts, deployments } = hre
@@ -33,17 +33,20 @@ const deploy: DeployFunction = async (hre) => {
     //   }
     // }
     const endpointV2Deployment = await hre.deployments.get('EndpointV2')
+    const stargate = '0x1E8A86EcC9dc41106d3834c6F1033D86939B1e0D'
 
-    const args = [
+    const args: any[] = [
         endpointV2Deployment.address, // LayerZero's EndpointV2 address
-        deployer, // owner
+        stargate, // stargate OApp 
     ]
+    console.log(`about to deploy contract: ${contractName}`)
     const { address } = await deploy(contractName, {
         from: deployer,
         args,
         log: true,
         skipIfAlreadyDeployed: false,
     })
+    console.log(`finishing deploy contract: ${contractName}`)
 
     console.log(`Deployed contract: ${contractName}, network: ${hre.network.name}, address: ${address}`)
 
